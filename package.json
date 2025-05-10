@@ -1,0 +1,48 @@
+{
+  "name": "vscode-ext-compare-current-with-diff",
+  "displayName": "VSCode Extension: Compare Current File w/ Clipboard Diff",
+  "description": "Adds support for comparing the current file with a diff/patch on the clipboard. This is useful for non-AI-IDE vibe-coding. Or launching the diff/merge viewer with a patch.",
+  "publisher": "AustinHanson",
+  "repository": {
+    "url": "https://github.com/berdon/vscode-ext-compare-current-with-diff"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.compareCurrentWithDiff",
+        "title": "Compare Current File with Clipboard Diff"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.compareCurrentWithDiff",
+          "group": "z_commands"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/diff": "^7.0.2",
+    "@types/node": "^20.8.10",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "diff": "^5.1.0"
+  }
+}
